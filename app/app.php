@@ -9,7 +9,7 @@
     // $server = 'mysql:host=localhost;dbname=~~~~~';
     // $username = 'root';
     // $password = 'root';
-    // $DB = new PDO($server, $username, $password)
+    // $DB = new PDO($server, $username, $password);
 
     $app->register(new Silex\Provider\TwigServiceProvider(), array('twig.path'=>__DIR__."/../views"
     ));
