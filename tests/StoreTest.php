@@ -18,6 +18,7 @@ class StoreTest extends PHPUnit_Framework_TestCase
     protected function TearDown()
     {
         Store::deleteAll();
+        Brand::deleteAll();
     }
 
     function test_getStoreName()
@@ -96,6 +97,54 @@ class StoreTest extends PHPUnit_Framework_TestCase
 
         //Assert
         $this->assertEquals($test_store, $result);
+    }
+
+    function test_addBrand()
+    {
+        //Arrange
+        $store_name = "Macys";
+        $id = 1;
+        $test_store = new Store($store_name, $id);
+        $test_store->save();
+
+        $brand_name = "Nike";
+        $id = 1;
+        $test_brand = new Brand($brand_name, $id);
+        $test_brand->save();
+
+        //Act
+        $test_store->addBrand($test_brand);
+
+        $result = $test_store->getBrands();
+
+        //Assert
+        $this->assertEquals([$test_brand], $result);
+    }
+
+    function test_getBrands()
+    {
+        //Arrange
+        $store_name = "Macys";
+        $id = 1;
+        $test_store = new Store($store_name, $id);
+        $test_store->save();
+
+        $brand_name = "Nike";
+        $id2 = 2;
+        $test_brand = new Brand($brand_name, $id2);
+        $test_brand->save();
+
+        $brand_name2 = "Vans";
+        $id3 = 3;
+        $test_brand2 = new Brand($brand_name2, $id3);
+        $test_brand2->save();
+
+        //Act
+        $test_store->addBrand($test_brand);
+        $test_store->addBrand($test_brand2);
+
+        //Assert
+        $this->assertEquals($test_store->getBrands(), [$test_brand, $test_brand2]);
     }
 
 
