@@ -88,6 +88,11 @@
             }
             return $result_brands;
         }
+        
+        function deleteStore()
+        {
+            $GLOBALS['DB']->exec("DELETE FROM stores WHERE id = {$this->getId()};");
+        }
     }
 
 
