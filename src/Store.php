@@ -88,10 +88,16 @@
             }
             return $result_brands;
         }
-        
+
         function deleteStore()
         {
             $GLOBALS['DB']->exec("DELETE FROM stores WHERE id = {$this->getId()};");
+        }
+
+        function updateStore($new_store_name)
+        {
+            $GLOBALS['DB']->exec("UPDATE stores SET store_name = {$new_store_name} WHERE id = {$this->getId()};");
+            $this->setStoreName($new_store_name);
         }
     }
 
