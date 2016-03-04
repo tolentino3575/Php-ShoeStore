@@ -22,6 +22,8 @@
         return $app['twig']->render('index.html.twig');
     });
 
+    //STORES---------------
+
     $app->get("/stores", function() use ($app){
         return $app['twig']->render('stores.html.twig', array('stores' => Store::getAll()));
     });
@@ -41,8 +43,10 @@
 
     $app->get("/store/{id}", function($id) use ($app){
         $store = Store::find($id);
-        return $app['twig']->render('store.html.twig', array('brands' => $store->getBrands(), 'store' => $store, 'all_brands' => Brand::getAll()));
+        return $app['twig']->render('store.html.twig', array('store' => $store, 'brands' => $store->getBrands(),  'all_brands' => Brand::getAll()));
     });
+
+    //BRANDS---------------
 
     $app->get("/brands", function() use ($app){
         return $app['twig']->render('brands.html.twig', array('brands' => Brand::getAll()));
