@@ -11,19 +11,28 @@
         <div class="container">
             <h1>Stores</h1>
             {% if stores is not empty %}
+                <h3>Here is a list of shoe stores:</h3>
                 {% for store in stores %}
                 <ul>
-                    <li>{{ store.getStoreName }}</li>
+                    <li><a href="/store/{{ store.getId }}">{{ store.getStoreName }}</a></li>
                 </ul>
                 {% endfor %}
             {% endif %}
 
+            {% if stores is empty %}
+                <h3>There are currently no stores to display. Add one!</h3>
+            {% endif %}
+            <br>
             <form action="/add_store" method="post">
                 <label for="add_store">Add a Store:</label>
                 <input id="add_store" name="add_store" required>
             <button type="submit" class="btn btn-danger">Add</button>
             </form>
-
+            <br>
+            <form action="/delete_all_stores" method="post">
+                <button type="submit" class="btn btn-danger">Clear Store List</button>
+            </form>
+            <br>
             <a href="/">Home</a>
         </div>
     </body>

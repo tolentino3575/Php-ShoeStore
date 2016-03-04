@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
+        <link rel="stylesheet" href="/css/bootstrap-theme.min.css" type="text/css">
+        <link rel="stylesheet" href="/css/styles.css" type="text/css">
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <div class="container">
+
+            <h1>{{ store.getStoreName }}</h1>
+
+
+            {% if brands is not empty %}
+                <h3>Here is a list of brands that this store carries:</h3>
+                {% for brand in brands %}
+                    <ul>
+                        <li>{{ brand.getBrandName }}</li>
+                    </ul>
+                {% endfor %}
+            {% endif %}
+
+
+            <a href="/">Home</a>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
+        <link rel="stylesheet" href="/css/bootstrap-theme.min.css" type="text/css">
+        <link rel="stylesheet" href="/css/styles.css" type="text/css">
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Brands</h1>
+            {% if brands is not empty %}
+                <h3>Here is a list of brands:</h3>
+                {% for brand in brands %}
+                    <ul>
+                        <li><a href="/brand/{{ brand.getId }}">{{ brand.getBrandName }}</a></li>
+                    </ul>
+                {% endfor %}
+            {% endif %}
+
+            {% if brands is empty %}
+                <h3>There are currently no brands to display. Add one!</h3>
+            {% endif %}
+            <br>
+            <form action="/add_brand" method="post">
+                <label for="add_brand">Add a Brand:</label>
+                <input id ="add_brand" name="add_brand" required>
+            <button type="submit" class="btn btn-danger">Add</button>
+            </form>
+            <br>
+            <form action="/delete_all_brands" method="post">
+                <button type="submit" class="btn btn-danger">Clear Brand List</button>
+            </form>
+            <br>
+            <a href="/">Home</a>
+        </div>
+    </body>
+</html>
