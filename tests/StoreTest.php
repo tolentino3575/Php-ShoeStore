@@ -114,7 +114,6 @@ class StoreTest extends PHPUnit_Framework_TestCase
 
         //Act
         $test_store->addBrand($test_brand);
-
         $result = $test_store->getBrands();
 
         //Assert
