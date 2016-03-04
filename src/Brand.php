@@ -5,7 +5,7 @@
         private $brand_name;
         private $id;
 
-        function __construct($brand_name, $id)
+        function __construct($brand_name, $id=null)
         {
             $this->brand_name = $brand_name;
             $this->id = $id;
@@ -49,14 +49,25 @@
         {
             $GLOBALS['DB']->exec("DELETE FROM brands");
         }
+
+        static function find($search_id)
+        {
+            $found_brand = null;
+            $brands = Brand::getAll();
+
+            foreach ($brands as $brand)
+            {
+                $brand_id = $brand->getId();
+                if ($brand_id == $search_id)
+                {
+                    $found_brand = $brand;
+                }
+            }
+            return $found_brand;
+        }
+
+
     }
-
-
-
-
-
-
-
 
 
 

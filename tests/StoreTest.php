@@ -98,17 +98,6 @@ class StoreTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($test_store, $result);
     }
 
-    function test_addBrands()
-    {
-        //Arrange
-        $store_name = "Macys";
-        $id = 1;
-
-    }
-
-
-
-
 
 
 
