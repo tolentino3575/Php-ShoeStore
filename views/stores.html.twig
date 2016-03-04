@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
+        <link rel="stylesheet" href="/css/bootstrap-theme.min.css" type="text/css">
+        <link rel="stylesheet" href="/css/styles.css" type="text/css">
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Stores</h1>
+            {% if stores is not empty %}
+                {% for store in stores %}
+                <ul>
+                    <li>{{ store.getStoreName }}</li>
+                </ul>
+                {% endfor %}
+            {% endif %}
+
+            <form action="/add_store" method="post">
+                <label for="add_store">Add a Store:</label>
+                <input id="add_store" name="add_store" required>
+            <button type="submit" class="btn btn-danger">Add</button>
+            </form>
+
+            <a href="/">Home</a>
+        </div>
+    </body>
+</html>
