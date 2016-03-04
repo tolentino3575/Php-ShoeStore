@@ -6,6 +6,7 @@
 */
 
 require_once "src/Store.php";
+require_once "src/Brand.php";
 
 $server = 'mysql:host=localhost;dbname=shoes_test';
 $username = 'root';
@@ -81,6 +82,35 @@ class StoreTest extends PHPUnit_Framework_TestCase
         //Assert
         $this->assertEquals([$test_store, $test_store2], $result);
     }
+
+    function test_find()
+    {
+        //Arrange
+        $store_name = "Macys";
+        $id = 1;
+        $test_store = new Store($store_name, $id);
+        $test_store->save();
+
+        //Act
+        $result = Store::find($test_store->getId());
+
+        //Assert
+        $this->assertEquals($test_store, $result);
+    }
+
+    function test_addBrands()
+    {
+        //Arrange
+        $store_name = "Macys";
+        $id = 1;
+
+    }
+
+
+
+
+
+
 
 
 }
