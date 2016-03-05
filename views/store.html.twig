@@ -11,6 +11,7 @@
         <div class="container">
 
             <h1>{{ store.getStoreName }}</h1>
+            <a href="/store/{{store.getId}}/edit">Edit store name</a>
 
 
             {% if brands is not empty %}
@@ -33,6 +34,12 @@
                 </select>
                 <button class="btn btn-danger" type="submit">Add brand</button>
             </form>
+            <br>
+            <form action="/store/{{ store.getId }}" method="post">
+                <input name="_method" type="hidden" value="delete">
+                <button type="submit" class="btn btn-danger">Delete store</button>
+            </form>
+            <br>
             <a href="/">Home</a>
         </div>
     </body>
