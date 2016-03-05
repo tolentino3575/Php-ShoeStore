@@ -23,7 +23,7 @@
             {% endif %}
 
             <form action="/add_brand_to_store" method="post">
-                <input id="store_id" name="store_id" type="hidden" value="{{ stores.getId }}">
+                <input id="store_id" name="store_id" type="hidden" value="{{ store.getId }}">
 
                 <label for="brand_id">Select a Brand</label>
                 <select id="brand_id" name="brand_id" type="text">
