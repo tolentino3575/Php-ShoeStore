@@ -1,5 +1,5 @@
 #Shoes Code Review
-PHP week 4 code review: Database Extended
+PHP week 4 code review: Databases Extended
 
 ##Author
 
