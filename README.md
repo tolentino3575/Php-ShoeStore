@@ -10,7 +10,7 @@ This project was created by Erik Tolentino
 This page will allow the user to add store names and brand names to the page. The user has the ability to add brands to stores, or add stores to brands. The user has the ability to update the name of the store, as well as delete the store individually, or delete all the stores at once.
 
 ##Known Bugs
-The function to update the name of the store does not work completely. The user can edit the name, and it will display the edited name on the following page, but no where else.
+N/A
 
 #Setup
 
